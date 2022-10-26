@@ -1,28 +1,28 @@
 import React from "react";
+
+// Style
 import style from "./App.module.css";
+
+// Components
 import Home from "./pages/Home/Home";
 import Layout from "./shared/components/Layout/Layout";
 
-export const ColorContext = React.createContext({
-  bool: true,
-  setBool: () => {},
-});
+// Context
+import { ThemeContext } from "./shared/context/ThemeContext";
 
 function App() {
-  const [bool, setBool] = React.useState(true);
+  // This state will be used to manage the light/dark theme
+  // Context is initialized inside ThemeContext, check the imports
+  const [theme, setTheme] = React.useState(true);
 
-  const handleColorMode = () => {
-    setBool(!bool);
-  };
   return (
-    <ColorContext.Provider value={{ bool, setBool }}>
-      <div className={style[bool ? "bg-light" : "bg-dark"]}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={style[theme ? "bg-light" : "bg-dark"]}>
         <Layout>
           <Home />
-          <button onClick={handleColorMode}>change color</button>
         </Layout>
       </div>
-    </ColorContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
