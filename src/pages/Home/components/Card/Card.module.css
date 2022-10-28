@@ -1,0 +1,27 @@
+.col {
+  padding: 0 1rem;
+}
+
+.card {
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+  width: 264px;
+  margin: 0 auto;
+}
+
+.card__card-flag {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card__info {
+  padding: 30px 24px;
+}
+
+.card__info > h2 {
+  margin-bottom: 1rem;
+}
+
+.card__info > p {
+  font-weight: 300;
+}
