@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 // Style
 import style from "./App.module.css";
@@ -6,6 +7,7 @@ import style from "./App.module.css";
 // Components
 import Home from "./pages/Home/Home";
 import Layout from "./shared/components/Layout/Layout";
+import Country from "./pages/Country/Country";
 
 // Context
 import { ThemeContext } from "./shared/context/ThemeContext";
@@ -19,7 +21,14 @@ function App() {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={style[theme ? "bg-light" : "bg-dark"]}>
         <Layout>
-          <Home />
+          <BrowserRouter>
+            <Routes>
+              <Route path="home" element={<Home />} />
+              <Route path="/" element={<Navigate to="home" />} />
+              <Route path="home/:id" element={<Country />} />
+              <Route path="*" element={<h1>404</h1>} />
+            </Routes>
+          </BrowserRouter>
         </Layout>
       </div>
     </ThemeContext.Provider>
