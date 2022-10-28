@@ -1,16 +1,16 @@
 import React from "react";
-import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Style
 import style from "./App.module.css";
 
 // Components
-import Home from "./pages/Home/Home";
 import Layout from "./shared/components/Layout/Layout";
-import Country from "./pages/Country/Country";
 
 // Context
 import { ThemeContext } from "./shared/context/ThemeContext";
+// Routes
+import AppRoutes from "./shared/components/AppRoutes/AppRoutes";
 
 function App() {
   // This state will be used to manage the light/dark theme
@@ -22,12 +22,9 @@ function App() {
       <div className={style[theme ? "bg-light" : "bg-dark"]}>
         <Layout>
           <BrowserRouter>
-            <Routes>
-              <Route path="home" element={<Home />} />
-              <Route path="/" element={<Navigate to="home" />} />
-              <Route path="home/:id" element={<Country />} />
-              <Route path="*" element={<h1>404</h1>} />
-            </Routes>
+            <React.Suspense fallback={<h1>Loading</h1>}>
+              <AppRoutes />
+            </React.Suspense>
           </BrowserRouter>
         </Layout>
       </div>
