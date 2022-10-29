@@ -1,11 +1,52 @@
+/* ROOT */
+:root {
+  --dark-mode-elements: hsl(209, 23%, 22%);
+  --dark-mode-background: hsl(207, 26%, 17%);
+  --light-mode-text: hsl(207, 26%, 17%);
+  --light-mode-input: hsl(0, 0%, 52%);
+  --light-mode-background: hsl(0, 0%, 98%);
+  --dark-mode-text: hsl(0, 0%, 100%);
+}
+
+/* HEADER */
 .header {
-  padding: 0 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
   height: 80px;
+  padding: 0 16px;
+}
+
+.header--light {
+  background-color: var(--light-mode-background);
+  color: var(--light-mode-text);
+}
+
+.header--dark {
+  background-color: var(--dark-mode-elements);
+  color: var(--dark-mode-text);
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   height: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  justify-content: space-between;
+  width: 1280px;
+}
+
+button {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button--light {
+  color: var(--light-mode-text);
+}
+
+.button--dark {
+  color: var(--dark-mode-text);
 }
