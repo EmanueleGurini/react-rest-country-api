@@ -32,7 +32,7 @@ const Card = ({ country }) => {
   }
 
   return (
-    <Link to={country?.cca3}>
+    <Link to={`country/${country?.cca3}`}>
       {/* COL */}
       <div className={style.col}>
         {/* CARD */}

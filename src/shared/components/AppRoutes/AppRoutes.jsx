@@ -15,7 +15,7 @@ const AppRoutes = () => {
       element: <Home />,
     },
     {
-      path: "home/:id",
+      path: "home/country/:id",
       element: <Country />,
     },
     {
