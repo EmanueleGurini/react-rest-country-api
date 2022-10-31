@@ -250,7 +250,14 @@ const isoCountries = {
 	"ZWE": "Zimbabwe",
 };
 
-export function getCountryName(countryCode) {
+
+/**
+ * Get the ISO 3166-1 alpha-3 code and return the corresponding country name.
+ * 
+ * @param {string} countryCode 
+ * @returns string 
+ */
+export const getCountryName = (countryCode) => {
 	if (isoCountries.hasOwnProperty(countryCode)) {
 		return isoCountries[countryCode];
 	} else {
