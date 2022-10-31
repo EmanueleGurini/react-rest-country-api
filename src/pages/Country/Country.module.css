@@ -1,0 +1,55 @@
+.country {
+}
+
+.country__nav {
+  margin: 3rem 0;
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+  border-radius: 2px;
+}
+
+.btn-country {
+  padding: 0.3rem 2rem;
+}
+
+.country__infos {
+  display: flex;
+}
+
+.country__infos > div {
+  width: calc(100% / 2);
+}
+
+.img__container {
+  max-width: 560px;
+  max-height: 401px;
+}
+
+.img__container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.infos__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info__top {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.info__top > div {
+  width: calc(100% / 2);
+}
+
+.info__top span {
+  font-weight: 600;
+}
