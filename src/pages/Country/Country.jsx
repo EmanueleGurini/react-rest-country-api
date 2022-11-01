@@ -52,12 +52,14 @@ const Country = () => {
   };
 
   if (country) {
-    console.log(country);
+    // Extraxt the currencies name from the object
+    const cur = Object.getOwnPropertyNames(country?.currencies)[0];
+
     Object.assign(data, {
       borders: country?.borders ? country?.borders : [],
       capital: country?.capital ? country?.capital[0] : "",
       countryName: country ? country?.name?.common : "",
-      currencies: country ? country?.currencies?.BBD?.name : "",
+      currencies: country ? country?.currencies[cur]?.name : "",
       flag: country ? country?.flags?.svg : "",
       languages: country ? Object.values(country?.languages) : [],
       nativeName: country ? country?.altSpellings[1] : "",
@@ -73,12 +75,16 @@ const Country = () => {
       <section className={styles["country__nav"]}>
         <Button value="Back" onClick={() => navigate(-1)} />
       </section>
+      {/* COUNTRY INFORMATIONS */}
       <section className={styles["country__infos"]}>
+        {/* COUNTRY IMAGE FLAG */}
         <div className={styles["country__img"]}>
           <div className={styles["img__container"]}>
             <img src={data?.flag} alt="img" />
           </div>
         </div>
+
+        {/* COUNTRY INFO */}
         <div className={styles["infos__container"]}>
           <div className={styles.info}>
             <h1>{data?.countryName}</h1>
@@ -116,7 +122,7 @@ const Country = () => {
                 </p>
                 <p>
                   <span>Languages: </span>
-                  {data.languages.join(", ")}
+                  {data?.languages?.join(", ")}
                 </p>
               </div>
             </div>
@@ -132,7 +138,7 @@ const Country = () => {
                 <p>
                   <span>Borders: </span>
                 </p>
-                {data.borders.map((item, index) => {
+                {data?.borders.map((item, index) => {
                   return (
                     <ButtonCountry
                       key={`country-${index}`}
