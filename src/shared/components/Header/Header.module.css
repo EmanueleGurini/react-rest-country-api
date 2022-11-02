@@ -16,7 +16,7 @@
 }
 
 .header--light {
-  background-color: var(--light-mode-background);
+  background-color: #fff;
   color: var(--light-mode-text);
 }
 
