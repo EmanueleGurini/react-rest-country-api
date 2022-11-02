@@ -20,7 +20,6 @@ const Card = ({ country }) => {
   };
 
   if (country) {
-    console.log(country);
     Object.assign(data, {
       cca3: country?.cca3 ? country?.cca3 : "",
       flag: country?.flags?.png,

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCountryName } from "../../shared/api/getCountryName";
 import { numberWithCommas } from "../../shared/api/numberWithCommas";
+import Spinner from "../../shared/components/Spinner/Spinner";
 import { ThemeContext } from "../../shared/context/ThemeContext";
 import styles from "./Country.module.css";
 
@@ -36,12 +37,35 @@ const Country = () => {
   const { theme } = React.useContext(ThemeContext);
   const { id } = useParams();
 
-  const [country, setCoutry] = React.useState(null);
+  const [country, setCoutry] = React.useState({
+    data: null,
+    error: "",
+    isLoading: false,
+  });
 
   React.useEffect(() => {
+    setCoutry((prev) => {
+      return { ...prev, isLoading: true };
+    });
+
     fetch(`https://restcountries.com/v3.1/alpha/${id}`)
       .then((res) => res.json())
-      .then((res) => setCoutry(res[0]));
+      .then((res) =>
+        setCoutry((prev) => {
+          return { ...prev, data: res[0] };
+        })
+      )
+      .catch((error) =>
+        setCountry((prev) => {
+          return { ...prev, error: error };
+        })
+      )
+      .finally(() =>
+        setCoutry((prev) => {
+          if (country.error !== "") console.log(country.error);
+          return { ...prev, isLoading: false };
+        })
+      );
   }, [id]);
 
   // sperimentig if is better to initializa six memeory space for each card inside the stack
@@ -60,24 +84,26 @@ const Country = () => {
     tld: [],
   };
 
-  if (country) {
+  if (country.data) {
     // Extraxt the currencies name from the object
-    const cur = Object.getOwnPropertyNames(country?.currencies)[0];
+    const cur = Object.getOwnPropertyNames(country.data?.currencies)[0];
 
     Object.assign(data, {
-      borders: country?.borders ? country?.borders : [],
-      capital: country?.capital ? country?.capital[0] : "",
-      countryName: country ? country?.name?.common : "",
-      currencies: country ? country?.currencies[cur]?.name : "",
-      flag: country ? country?.flags?.svg : "",
-      languages: country ? Object.values(country?.languages) : [],
-      nativeName: country ? country?.altSpellings[1] : "",
-      population: numberWithCommas(country?.population, "."),
-      region: country ? country?.region : "",
-      subregion: country ? country?.subregion : "",
-      tld: country ? country?.tld[0] : [],
+      borders: country.data?.borders ? country?.data?.borders : [],
+      capital: country.data?.capital ? country.data?.capital[0] : "",
+      countryName: country.data ? country.data?.name?.common : "",
+      currencies: country.data ? country.data?.currencies[cur]?.name : "",
+      flag: country.data ? country.data?.flags?.svg : "",
+      languages: country.data ? Object.values(country.data?.languages) : [],
+      nativeName: country.data ? country.data?.altSpellings[1] : "",
+      population: numberWithCommas(country.data?.population, "."),
+      region: country.data ? country.data?.region : "",
+      subregion: country.data ? country.data?.subregion : "",
+      tld: country.data ? country.data?.tld[0] : [],
     });
   }
+
+  console.log("data:", data);
 
   return (
     <div
@@ -85,6 +111,18 @@ const Country = () => {
         styles[`country--${theme ? "light" : "dark"}`]
       }`}
     >
+      {country.isLoading && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "3rem",
+          }}
+        >
+          <Spinner />
+        </div>
+      )}
+
       <section className={styles["country__nav"]}>
         <Button value="Back" onClick={() => navigate(-1)} />
       </section>
