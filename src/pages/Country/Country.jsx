@@ -2,20 +2,28 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCountryName } from "../../shared/api/getCountryName";
 import { numberWithCommas } from "../../shared/api/numberWithCommas";
+import { ThemeContext } from "../../shared/context/ThemeContext";
 import styles from "./Country.module.css";
 
 const Button = ({ value, onClick }) => {
+  const { theme } = React.useContext(ThemeContext);
   return (
-    <button className={styles.btn} onClick={onClick}>
+    <button
+      className={`${styles.btn} ${styles[`btn--${theme ? "light" : "dark"}`]}`}
+      onClick={onClick}
+    >
       {value}
     </button>
   );
 };
 
 const ButtonCountry = ({ value, onClick }) => {
+  const { theme } = React.useContext(ThemeContext);
   return (
     <button
-      className={`${styles.btn} ${styles["btn-country"]}`}
+      className={`${styles.btn} ${styles["btn-country"]} ${
+        styles[`btn--${theme ? "light" : "dark"}`]
+      }`}
       onClick={onClick}
     >
       {value}
@@ -25,6 +33,7 @@ const ButtonCountry = ({ value, onClick }) => {
 
 const Country = () => {
   const navigate = useNavigate();
+  const { theme } = React.useContext(ThemeContext);
   const { id } = useParams();
 
   const [country, setCoutry] = React.useState(null);
@@ -71,7 +80,11 @@ const Country = () => {
   }
 
   return (
-    <div className={styles.country}>
+    <div
+      className={`${styles["country"]} ${
+        styles[`country--${theme ? "light" : "dark"}`]
+      }`}
+    >
       <section className={styles["country__nav"]}>
         <Button value="Back" onClick={() => navigate(-1)} />
       </section>
