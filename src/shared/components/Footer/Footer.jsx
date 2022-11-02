@@ -1,12 +1,17 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import style from "./Footer.module.css";
 
 const Footer = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <section className={style.footer}>
+    <section
+      className={`${style.footer} ${
+        style[`footer--${theme ? "light" : "dark"}`]
+      }`}
+    >
       <div className={style.container}>
-        <p>
-          Made with 63 Coffee by Laura, Emerson, João, Alejandro and Emanuele
-        </p>
+        <p style={{ fontWeight: 600 }}>Made with by 70 Coffee</p>
       </div>
     </section>
   );

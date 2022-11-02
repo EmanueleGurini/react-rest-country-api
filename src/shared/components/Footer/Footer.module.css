@@ -4,6 +4,16 @@
   padding: 0 16px;
 }
 
+.footer--light {
+  background-color: #fff;
+  color: var(--light-mode-text);
+}
+
+.footer--dark {
+  background-color: var(--dark-mode-elements);
+  color: var(--dark-mode-text);
+}
+
 .container {
   display: flex;
   justify-content: center;
