@@ -27,6 +27,14 @@
   border-radius: 5px;
 }
 
+@media screen and (max-width: 375px) {
+  .search {
+    flex-direction: column;
+    justify-content: start;
+    gap: 2rem;
+  }
+}
+
 .light {
   background-color: #fff;
   color: var(--light-mode-text);

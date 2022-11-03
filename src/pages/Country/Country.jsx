@@ -103,8 +103,6 @@ const Country = () => {
     });
   }
 
-  console.log("data:", data);
-
   return (
     <div
       className={`${styles["country"]} ${

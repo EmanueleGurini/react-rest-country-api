@@ -11,7 +11,7 @@ const Footer = () => {
       }`}
     >
       <div className={style.container}>
-        <p style={{ fontWeight: 600 }}>Made by The Cool Guys</p>
+        <p style={{ fontWeight: 600 }}>Made by Emanuele Gurini</p>
       </div>
     </section>
   );

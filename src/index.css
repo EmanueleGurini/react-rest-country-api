@@ -27,3 +27,9 @@ h2 {
   line-height: 1.5;
   font-weight: 800;
 }
+
+@media screen and (max-width: 375px) {
+  h1 {
+    font-size: 14px;
+  }
+}
