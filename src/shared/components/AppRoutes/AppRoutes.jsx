@@ -1,8 +1,8 @@
 import React from "react";
 import { useRoutes, Navigate } from "react-router-dom";
-import Country from "../../../pages/Country/Country";
+import Country from "../../../pages/Country/Country.jsx";
 
-const Home = React.lazy(() => import("../../../pages/Home/Home"));
+const Home = React.lazy(() => import("../../../pages/Home/Home.jsx"));
 
 const AppRoutes = () => {
   return useRoutes([

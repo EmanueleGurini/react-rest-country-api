@@ -1,2 +1,2 @@
-import Layout from "./Layout";
+import Layout from "./Layout.jsx";
 export { Layout };

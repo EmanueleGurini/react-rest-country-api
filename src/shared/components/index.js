@@ -1,7 +1,7 @@
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { AppRoutes } from "./AppRoutes";
-import { Layout } from "./Layout";
-import { Spinner } from "./Spinner";
+import { Header } from "./Header/index.js";
+import { Footer } from "./Footer/index.js";
+import { AppRoutes } from "./AppRoutes/index.js";
+import { Layout } from "./Layout/index.js";
+import { Spinner } from "./Spinner/index.js";
 
 export { AppRoutes, Layout, Header, Footer, Spinner };

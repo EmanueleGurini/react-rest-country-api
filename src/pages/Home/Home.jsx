@@ -2,14 +2,14 @@ import React from "react";
 import Select from "react-select";
 import { useFetch } from "./hook/useFetch";
 
-import Card from "./components/Card/Card";
+import { Card } from "./components";
 import style from "./Home.module.css";
-import IconLensLight from "../../assets/icons/icon-lens-light.svg";
-import IconLensDark from "../../assets/icons/icon-lens-dark.svg";
+import IconLensLight from "@/assets/icons/icon-lens-light.svg";
+import IconLensDark from "@/assets/icons/icon-lens-dark.svg";
 
 import { options } from "./data/data";
 import { useContext } from "react";
-import { ThemeContext } from "../../shared/context/ThemeContext";
+import { ThemeContext } from "@/shared/context/ThemeContext";
 import { styles } from "./select.style";
 
 const Home = () => {

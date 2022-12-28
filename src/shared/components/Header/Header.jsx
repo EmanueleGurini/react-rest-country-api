@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./Header.module.css";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext.jsx";
 
 import iconLight from "../../../assets/icons/icon-light-theme.svg";
 import iconDark from "../../../assets/icons/icon-dark-theme.svg";
