@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCountryName } from "../../shared/api/getCountryName";
 import { numberWithCommas } from "../../shared/api/numberWithCommas";
-import Spinner from "../../shared/components/Spinner/Spinner";
+import { Spinner } from "../../shared/components/index";
 import { ThemeContext } from "../../shared/context/ThemeContext";
 import styles from "./Country.module.css";
 import useCountry from "./hook/useCountry";

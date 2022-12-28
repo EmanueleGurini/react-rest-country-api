@@ -3,14 +3,10 @@ import { BrowserRouter } from "react-router-dom";
 
 // Style
 import style from "./App.module.css";
-
-// Components
-import Layout from "./shared/components/Layout/Layout";
+import { AppRoutes, Layout } from "./shared/components";
 
 // Context
 import { ThemeContext } from "./shared/context/ThemeContext";
-// Routes
-import AppRoutes from "./shared/components/AppRoutes/AppRoutes";
 
 function App() {
   // This state will be used to manage the light/dark theme
