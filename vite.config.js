@@ -5,7 +5,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "{repName}",
+  base: "/react-rest-country-api/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
